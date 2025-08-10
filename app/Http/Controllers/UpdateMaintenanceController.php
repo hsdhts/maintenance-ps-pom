@@ -105,6 +105,7 @@ class UpdateMaintenanceController extends Controller
         $users = User::whereNotNull('web_token')->where('id', '!=', auth()->id())->get();
         $users->each(function ($user) use ($channel, $link) {
             if ($user->web_token) {
+
                 Log::info("Sending to user {$user->id} with token: {$user->web_token}");
                 try {
                     $user->notify(new WebPushNotification($channel, $link, 'Jadwal Maintenance Baru ' . now()));

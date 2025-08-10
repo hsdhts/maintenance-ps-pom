@@ -8,14 +8,13 @@
  // your app's Firebase config object.
  // https://firebase.google.com/docs/web/setup#config-object
  firebase.initializeApp({
-  apiKey: "",
-  authDomain: "",
-  databaseURL: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: "",
-  measurementId: ""
+    apiKey: "AIzaSyDR13iMX3GnYLUWXFIMCgfImq5qJA81-QQ",
+    authDomain: "hello-5b477.firebaseapp.com",
+    projectId: "hello-5b477",
+    storageBucket: "hello-5b477.firebasestorage.app",
+    messagingSenderId: "152532651491",
+    appId: "1:152532651491:web:97fb98039660018bf264d6",
+    measurementId: "G-TMBWENTDRQ"
  });
 
  // Retrieve an instance of Firebase Messaging so that it can handle background

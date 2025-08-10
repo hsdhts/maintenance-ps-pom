@@ -165,6 +165,7 @@ Route::post('/sparepart/jadwal/', [JadwalSparepartController::class, 'tambah_spa
 Route::delete('/sparepart/jadwal/delete/', [JadwalSparepartController::class, 'hapus_sparepart'])->middleware('teknisi');
 
 
+Route::get('/jadwal/all', [JadwalController::class, 'indexAll'])->middleware('auth');
 Route::get('/jadwal/{id}', [JadwalController::class, 'index'])->middleware('auth');
 Route::get('/jadwal/detail/{id}', [JadwalController::class, 'detail'])->middleware('auth');
 Route::put('/jadwal/update/', [JadwalController::class, 'update'])->middleware('teknisi')->middleware('bukan admin');

@@ -2,21 +2,20 @@ require('./bootstrap');
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getMessaging, getToken, onMessage, onBackgroundMessage } from "firebase/messaging";
+import { getMessaging, getToken } from "firebase/messaging";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "",
-    appId: "",
-    measurementId: ""
+    apiKey: "AIzaSyDR13iMX3GnYLUWXFIMCgfImq5qJA81-QQ",
+    authDomain: "hello-5b477.firebaseapp.com",
+    projectId: "hello-5b477",
+    storageBucket: "hello-5b477.firebasestorage.app",
+    messagingSenderId: "152532651491",
+    appId: "1:152532651491:web:97fb98039660018bf264d6",
+    measurementId: "G-TMBWENTDRQ"
 };
 
 // Initialize Firebase
@@ -27,7 +26,7 @@ const messaging = getMessaging(app);
 navigator.serviceWorker.register('firebase-messaging-sw.js')
     .then((registration) => {
         getToken(messaging, {
-            vapidKey: "",
+            vapidKey: "BNMSf10vEHp6OfS3VIllZ_YRHA_dXq9RKlbFopn74v35ITXv0mT4AKWEgkmIFXKDaDwmdh-xXDlAOHJYefhXUis",
             serviceWorkerRegistration: registration,
         }).then((currentToken) => {
             if (currentToken) {
