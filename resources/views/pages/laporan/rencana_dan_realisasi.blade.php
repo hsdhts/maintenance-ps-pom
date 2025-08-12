@@ -19,7 +19,7 @@
             min-width: 10px;
         }.judul{
             margin-top:3px;
-            margin-bottom: 3px; 
+            margin-bottom: 3px;
             text-align: center;
         }
 
@@ -36,8 +36,8 @@
         $hitung_bulan = 1;
         setlocale(LC_ALL, 'IND');
     @endphp
-        
-        
+
+
     <h3 class="judul">RENCANA DAN REALISASI PREVENTIVE MAINTENANCE MESIN UTILITY</h3>
     <h5 class="judul">Tahun {{ $tahun_ini }}</h5>
     <h6 style="font-size: 7pt;" class="judul">(diunduh tanggal {{ now(7)->formatLocalized('%d %B %Y') }})</h6>
@@ -49,21 +49,21 @@
                 <th rowspan="2">Maintenance</th>
 
                 @while($tgl_awal->year == $tahun_ini)
-                
+
 
                 @php
-                                       
+
                     if($tgl_awal->copy()->addWeek()->month == $tgl_awal->month){
                         $hitung_bulan++;
                     }else{
-                     
+
                         echo '<td colspan="'. $hitung_bulan .'">'. Illuminate\Support\Carbon::parse($tgl_awal)->formatLocalized('%B') .'</td>';
                         $hitung_bulan = 1;
                     }
                     $tgl_awal->addWeek();
 
 
-                    
+
                 @endphp
             @endwhile
 
@@ -78,16 +78,16 @@
             <tr>
 
                 @while($tgl_akhir->year == $tahun_ini)
-                
+
                     <td>
                         {{ $loop }}
                     </td>
-                    
+
                     @php
-                    
+
                     $tgl_awal = $tgl_akhir->copy();
                     $tgl_akhir->addWeek();
-                    
+
                     if($loop < 4){
                         $loop++;
                     }else{
@@ -96,16 +96,16 @@
                     @endphp
                 @endwhile
             </tr>
-                          
+
             @foreach ($mesin as $mes)
             @if($mes->maintenance->isNotEmpty())
-           
+
                 @foreach($mes->maintenance as $maintenance)
                 @if(!$loop->first)
                     <tr>
                 @else
                 <tr>
-                        <td rowspan="{{ $mes->maintenance->count() }}">{{ $mes->nama_mesin }}<br>({{ $mes->tipe_mesin }})</td> 
+                        <td rowspan="{{ $mes->maintenance->count() }}">{{ $mes->nama_mesin }}<br>({{ $mes->tipe_mesin }})</td>
                 @endif
 
 
@@ -116,7 +116,7 @@
                     $tgl_akhir = $akhir->copy();
 
                     @endphp
-                    
+
                     @while($tgl_akhir->year == $tahun_ini)
 
                         @php
@@ -126,7 +126,6 @@
                                 if(Illuminate\Support\Carbon::parse($jadwal->tanggal_rencana)->greaterThanOrEqualTo($tgl_awal) && Illuminate\Support\Carbon::parse($jadwal->tanggal_rencana)->lessThanOrEqualTo($tgl_akhir)){
                                     $warna = true;
                                 }
-            
 
                                 if(!is_null($jadwal->tanggal_realisasi) && Illuminate\Support\Carbon::parse($jadwal->tanggal_realisasi)->greaterThanOrEqualTo($tgl_awal) && Illuminate\Support\Carbon::parse($jadwal->tanggal_realisasi)->lessThanOrEqualTo($tgl_akhir)){
                                     $tanggal = Illuminate\Support\Carbon::parse($jadwal->tanggal_realisasi)->day;
@@ -165,6 +164,6 @@
 
 
 
-    
+
 </body>
 </html>

@@ -14,14 +14,14 @@
         <td><b>Kode Mesin</b></td>
         <td>{{ $mesin['kode_mesin'] }}</td>
     </tr>
- 
+
     <tr>
         <td><b>Kategori</b></td>
         <td>{{ $mesin['kategori']['nama_kategori'] }}</td>
     </tr>
 </table>
 
- 
+
     <a href="/mesin" class="btn btn-dark container-fluid mt-12">
         <!--begin::Svg Icon | path: assets/media/icons/duotune/arrows/arr046.svg-->
         <span class="svg-icon svg-icon-muted svg-icon-3">
@@ -47,28 +47,28 @@
 <form action="/maintenance/form/pilih/kirim/" method="post">
     @csrf
     <select name="id" class="form-select mx-5" aria-label="Pilih">
-        
+
         <option value="{{ $mesin['kategori_id'] }}">{{ $mesin['kategori']['nama_kategori'] }}</option>
-        
+
         @foreach ($kategori as $k)
-        
+
         <option value="{{ $k->id }}">{{ $k->nama_kategori }}</option>
-        
+
         @endforeach
-        
+
     </select>
 
     <div class="row m-5 text-center">
         <div class="col-6"></div>
         <div class="col-6"><button class="btn btn-primary btn-lg" type="submit">Pilih</button></div>
       </div>
-   
-    
+
+
 </form>
 @else
 <h3>Mesin ini tidak punya jadwal maintenance</h3>
 <p>Silahkan hubungi PIC dari mesin ini atau admin untuk dibuatkan jadwal</p>
 @endcanany
-    
-    
+
+
 @endsection

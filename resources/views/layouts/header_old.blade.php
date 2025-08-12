@@ -27,7 +27,7 @@
     }
     @endphp
 
-    <title>Laboratorium TM @if($halaman != ''): {{$halaman}} @endif</title>
+    <title>Breakdown Sys @if($halaman != ''): {{$halaman}} @endif</title>
     <script src="{{ mix('/js/app.js') }}"></script>
   </head>
   <body>
