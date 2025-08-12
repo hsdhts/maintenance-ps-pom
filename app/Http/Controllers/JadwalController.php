@@ -165,6 +165,21 @@ class JadwalController extends Controller
         return view('pages.jadwal.detail', ['halaman' => 'Jadwal', 'jadwal' => $jadwal, 'isi_form' => $isi_form, 'mesin' => $mesin, 'maintenance' => $maintenance, 'sparepart' => $sparepart]);
     }
 
+    public function update_status(Request $request){
+        $request->validate([
+            'id' => 'required|numeric',
+            'status' => 'required|numeric',
+        ]);
+
+        $jadwal = Jadwal::find($request->id);
+        if($jadwal){
+            $jadwal->status = $request->status;
+            $jadwal->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false], 404);
+    }
+
 
     public function update(Request $request){
 

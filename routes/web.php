@@ -148,6 +148,7 @@ Route::delete('/sparepart/jadwal/delete/', [JadwalSparepartController::class, 'h
 Route::get('/jadwal/all', [JadwalController::class, 'indexAll'])->middleware('auth');
 Route::get('/jadwal/{id}', [JadwalController::class, 'index'])->middleware('auth');
 Route::get('/jadwal/detail/{id}', [JadwalController::class, 'detail'])->middleware('auth');
+Route::put('/jadwal/update/status', [JadwalController::class, 'update_status'])->middleware('auth');
 Route::put('/jadwal/update/', [JadwalController::class, 'update'])->middleware('teknisi')->middleware('bukan admin');
 Route::put('/jadwal/update_alasan/', [JadwalController::class, 'update_with_alasan'])->middleware('teknisi')->middleware('bukan admin');
 Route::post('/jadwal/update_alasan_batal/', [JadwalController::class, 'update_with_alasan_batal'])->middleware('teknisi')->middleware('bukan admin');

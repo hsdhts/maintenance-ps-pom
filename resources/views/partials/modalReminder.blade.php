@@ -13,7 +13,7 @@
                 <!--end::Close-->
             </div>
             <div class="modal-body">
-                								
+
 				<!--begin::Body-->
 				<div class="card-body py-3">
 					<!--begin::Table container-->
@@ -23,7 +23,7 @@
 							<!--begin::Table head-->
 							<thead>
 								<tr class="fw-bolder text-muted">
-									
+
 									<th class="min-w-150px">Maintenance</th>
 									<th class="min-w-140px">Mesin</th>
 									<th class="min-w-120px">Tanggal</th>
@@ -33,7 +33,7 @@
 							</thead>
 							<tbody>
 
-							
+
 							@foreach($terlambat as $t)
 								<tr>
 									<td>
@@ -45,7 +45,7 @@
 									<td>
 										<span class="text-dark fw-bolder d-block mb-1 fs-6">{{ Illuminate\Support\Carbon::parse($t->start_date)->format('d/m/Y') }}</span>
 									</td>
-									
+
 									<td class="text-dark fw-bolder fs-6">{{ $t->maintenance->mesin->user->nama }}</td>
 									<td>
 										@if($t->status == 1)
@@ -64,14 +64,14 @@
 											</svg></span>
 											<!--end::Svg Icon-->
 										</a>
-									
+
 									</td>
 								</tr>
 
 							@endforeach
 
-							
-								
+
+
 							</tbody>
 							<!--end::Table body-->
 						</table>
@@ -81,7 +81,7 @@
 				</div>
 				<!--begin::Body-->
 			<!--end::Tables Widget 13-->
-               
+
             </div>
 
             <div class="modal-footer">
@@ -89,7 +89,7 @@
             </div>
         </div>
     </div>
-</div>	
+</div>
 
 <div class="modal fade" tabindex="-1" id="kt_modal_2">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
@@ -107,7 +107,7 @@
             <div class="modal-body">
 
                 								<!--begin::Tables Widget 13-->
-					
+
 									<!--begin::Body-->
 									<div class="card-body py-3">
 										<!--begin::Table container-->
@@ -117,7 +117,7 @@
 												<!--begin::Table head-->
 												<thead>
 													<tr class="fw-bolder text-muted">
-														
+
 														<th class="min-w-150px">Maintenance</th>
 														<th class="min-w-140px">Mesin</th>
 														<th class="min-w-120px">Tanggal</th>
@@ -126,7 +126,7 @@
 													</tr>
 												</thead>
 												<tbody>
-													
+
 
 
                                                     @foreach($hari_ini as $h)
@@ -140,13 +140,12 @@
 														<td>
 															<span class="text-dark fw-bolder d-block mb-1 fs-6">{{ Illuminate\Support\Carbon::parse($h->start_date)->format('d/m/Y') }}</span>
 														</td>
-														
+
 														<td>
-                                                            @if($h->status == 1)
-                                                                <span class="badge badge-light-danger">Belum Dikerjakan</span>
-                                                            @else
-                                                                <span class="badge badge-light-success">Menunggu Approve</span>
-                                                            @endif
+															<div class="btn-group" role="group">
+																<button type="button" class="btn btn-sm btn-status {{ $h->status == 1 ? 'btn-danger' : 'btn-outline-danger' }}" data-id="{{ $h->id }}" data-status="1">Belum Dikerjakan</button>
+																<button type="button" class="btn btn-sm btn-status {{ $h->status == 2 ? 'btn-warning' : 'btn-outline-warning' }}" data-id="{{ $h->id }}" data-status="2">Dalam Pekerjaan</button>
+															</div>
 														</td>
 														<td>
 															<a href="/jadwal/detail/{{ $h->id }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
@@ -158,14 +157,14 @@
                                                                 </svg></span>
                                                                 <!--end::Svg Icon-->
 															</a>
-														
+
 														</td>
 													</tr>
 
                                                 @endforeach
 
-												
-													
+
+
 												</tbody>
 												<!--end::Table body-->
 											</table>
@@ -175,7 +174,7 @@
 									</div>
 									<!--begin::Body-->
 								<!--end::Tables Widget 13-->
-               
+
             </div>
 
             <div class="modal-footer">
@@ -183,7 +182,7 @@
             </div>
         </div>
     </div>
-</div>	
+</div>
 
 <div class="modal fade" tabindex="-1" id="kt_modal_3">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
@@ -201,7 +200,7 @@
             <div class="modal-body">
 
                 								<!--begin::Tables Widget 13-->
-					
+
 									<!--begin::Body-->
 									<div class="card-body py-3">
 										<!--begin::Table container-->
@@ -219,31 +218,31 @@
 												</thead>
 												<!--end::Table head-->
 												<tbody>
-												
+
 
                                                     @foreach($seminggu as $m)
                                                     <tr>
 														<td>
 															<span class="text-dark fw-bolder d-block mb-1 fs-6">{{ $m->nama_mesin }}</span>
 														</td>
-														
+
 														<td>
 															<span class="text-dark fw-bolder d-block mb-1 fs-6">{{ $m->kode_mesin }}</span>
 														</td>
 														<td>
 															<span class="text-dark fw-bolder d-block mb-1 fs-6">{{ $m->tanggal_pembelian }}</span>
 														</td>
-														
+
 														<td>
 															<span class="text-dark fw-bolder d-block mb-1 fs-6">{{ $m->kategori->nama_kategori }}</span>
 														</td>
-								
+
 													</tr>
 
                                                 @endforeach
 
-												
-													
+
+
 												</tbody>
 												<!--end::Table body-->
 											</table>
@@ -253,7 +252,7 @@
 									</div>
 									<!--begin::Body-->
 								<!--end::Tables Widget 13-->
-               
+
             </div>
 
             <div class="modal-footer">
@@ -261,7 +260,7 @@
             </div>
         </div>
     </div>
-</div>	
+</div>
 
 <div class="modal fade" tabindex="-1" id="kt_modal_4">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
@@ -279,7 +278,7 @@
             <div class="modal-body">
 
                 								<!--begin::Tables Widget 13-->
-					
+
 									<!--begin::Body-->
 									<div class="card-body py-3">
 										<!--begin::Table container-->
@@ -298,28 +297,28 @@
 												<!--end::Table head-->
 												<!--begin::Table body-->
 												<tbody>
-													
+
 
                                                     @foreach($sebulan as $b)
                                                     <tr>
-														<td>	
+														<td>
 															<span class="text-dark fw-bolder d-block mb-1 fs-6">{{ $b->nama }}</span>
 														</td>
-														<td>	
+														<td>
 															<span class="text-dark fw-bolder d-block mb-1 fs-6">{{ $b->username }}</span>
 														</td>
-														<td>	
+														<td>
 															<span class="text-dark fw-bolder d-block mb-1 fs-6">{{ $b->level }}</span>
 														</td>
-														<td>	
+														<td>
 															<span class="text-dark fw-bolder d-block mb-1 fs-6">{{ $b->last_login }}</span>
 														</td>
 													</tr>
 
                                                 @endforeach
 
-												
-													
+
+
 												</tbody>
 												<!--end::Table body-->
 											</table>
@@ -329,7 +328,7 @@
 									</div>
 									<!--begin::Body-->
 								<!--end::Tables Widget 13-->
-               
+
             </div>
 
             <div class="modal-footer">
@@ -337,4 +336,65 @@
             </div>
         </div>
     </div>
-</div>	
+</div>
+
+@section('customJs')
+<script>
+$(document).ready(function() {
+    // Gunakan event delegation untuk menangani klik pada tombol status
+    $(document).on('click', '.btn-status', function() {
+        let button = $(this);
+        let id = button.data('id');
+        let newStatus = button.data('status');
+
+        // Kirim request AJAX untuk update status
+        $.ajax({
+            url: `/jadwal/update/status`,
+            type: 'PUT',
+            data: {
+                _token: '{{ csrf_token() }}',
+                id: id,
+                status: newStatus
+            },
+            success: function(response) {
+                if(response.success) {
+                    Swal.fire({
+                        title: 'Berhasil!',
+                        text: 'Status berhasil diperbarui.',
+                        icon: 'success',
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+
+                    // Update tampilan tombol tanpa reload halaman
+                    let buttonGroup = button.closest('.btn-group');
+                    buttonGroup.find('.btn-status').each(function() {
+                        let btn = $(this);
+                        let status = btn.data('status');
+                        if (status == newStatus) {
+                            btn.removeClass('btn-outline-danger btn-outline-warning').addClass(status == 1 ? 'btn-danger' : 'btn-warning');
+                        } else {
+                            btn.removeClass('btn-danger btn-warning').addClass(status == 1 ? 'btn-outline-danger' : 'btn-outline-warning');
+                        }
+                    });
+
+                } else {
+                    Swal.fire(
+                        'Gagal!',
+                        response.message || 'Gagal memperbarui status.',
+                        'error'
+                    );
+                }
+            },
+            error: function(xhr) {
+                Swal.fire(
+                    'Error!',
+                    'Terjadi kesalahan. Silakan coba lagi.',
+                    'error'
+                );
+            }
+        });
+    });
+});
+</script>
+@endsection
