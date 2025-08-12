@@ -123,6 +123,29 @@
         @endif
     </table>
 
+    <table style="width: 100%; text-align: center; margin-top: 40px; border: none;">
+        <tr style="border: none;">
+            <td style="border: none; width: 33.33%;">
+                <p>Disetujui oleh,</p>
+                <p>Factory Manager</p>
+                <br><br><br>
+                <p>(.........................)</p>
+            </td>
+            <td style="border: none; width: 33.33%;">
+                <p>Diperiksa oleh,</p>
+                <p>Asst. Maintenance</p>
+                <br><br><br>
+                <p>(.........................)</p>
+            </td>
+            <td style="border: none; width: 33.33%;">
+                <p>Dikerjakan oleh,</p>
+                <p>Supervisor</p>
+                <br><br><br>
+                <p>(.........................)</p>
+            </td>
+        </tr>
+    </table>
+
 
 </body>
 </html>

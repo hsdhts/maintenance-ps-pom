@@ -35,7 +35,7 @@
 
         <div class="col-xl-3">
             <!--begin::Statistics Widget 5-->
-            <a href="{{ url('/') }}" class="card bg-primary hoverable card-xl-stretch mb-5 mb-xl-8">
+            <a href="{{ url('/mesin') }}" class="card bg-primary hoverable card-xl-stretch mb-5 mb-xl-8">
                 <!--begin::Body-->
                 <div class="card-body">
                     {{-- <span class="position-absolute top-0 fs-3 start-100 p-7 translate-middle badge badge-circle badge-danger">0</span> --}}

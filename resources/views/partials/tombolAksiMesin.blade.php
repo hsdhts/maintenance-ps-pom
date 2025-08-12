@@ -1,7 +1,7 @@
 <div class="m-1">
-<form action="/maintenance/form/pilih/" method="post" style ="display:inline-block;">
+<form action="{{ url('/mesin/maintenance/create/') }}" method="post" style ="display:inline-block;">
     @csrf
-    <input type="hidden" name="id" value="{{ $id }}">
+    <input type="hidden" name="mesin_id" value="{{ $id }}">
     <button class="btn btn-sm btn-warning  btn-color-dark py-0 text-nowrap" type="submit">
      <!--begin::Svg Icon | path: assets/media/icons/duotune/text/txt010.svg-->
 <span class="svg-icon svg-icon-muted svg-icon-7">
