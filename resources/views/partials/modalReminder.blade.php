@@ -24,7 +24,7 @@
 							<thead>
 								<tr class="fw-bolder text-muted">
 
-									<th class="min-w-150px">Maintenance</th>
+									<th class="min-w-150px">Breakdown</th>
 									<th class="min-w-140px">Mesin</th>
 									<th class="min-w-120px">Tanggal</th>
 									<th class="min-w-120px">Status</th>
@@ -46,12 +46,11 @@
 										<span class="text-dark fw-bolder d-block mb-1 fs-6">{{ Illuminate\Support\Carbon::parse($t->start_date)->format('d/m/Y') }}</span>
 									</td>
 
-									<td class="text-dark fw-bolder fs-6">{{ $t->maintenance->mesin->user->nama }}</td>
 									<td>
 										@if($t->status == 1)
 											<span class="badge badge-light-danger">Belum Dikerjakan</span>
 										@else
-											<span class="badge badge-light-success">Menunggu Approve</span>
+											<span class="badge badge-light-success">Dalam Pekerjaan</span>
 										@endif
 									</td>
 									<td>
@@ -118,7 +117,7 @@
 												<thead>
 													<tr class="fw-bolder text-muted">
 
-														<th class="min-w-150px">Maintenance</th>
+														<th class="min-w-150px">Breakdown</th>
 														<th class="min-w-140px">Mesin</th>
 														<th class="min-w-120px">Tanggal</th>
 														<th class="min-w-120px">Status</th>

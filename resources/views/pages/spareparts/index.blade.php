@@ -5,7 +5,7 @@
     <th>Gambar Sparepart</th>
     <th>Sparepart</th>
     <th>Jumlah</th>
-    <th>Estimasi</th>
+    <th>Tanggal Pembelian</th>
     <th>Deskripsi</th>
     <th>Aksi</th>
 @endsection
@@ -16,9 +16,9 @@
 <style>
     tr.red-row td {
         background-color: red;
-        vertical-align: middle; 
-        padding-top: 1px; 
-        padding-bottom: 1px; 
+        vertical-align: middle;
+        padding-top: 1px;
+        padding-bottom: 1px;
     }
 </style>
 
@@ -37,7 +37,7 @@
             },
             {
                 targets: 2,
-                className: 'dt-right'  
+                className: 'dt-right'
             },
             {
                 targets: 3,
@@ -68,9 +68,9 @@
         createdRow: function(row, data, dataIndex) {
             if (data.jumlah == 0) {
                 $(row).children('td:not(:last-child)').css({
-                    'background-color': 'red', 
-                    'padding-top': '5px', 
-                    'padding-bottom': '5px' 
+                    'background-color': 'red',
+                    'padding-top': '5px',
+                    'padding-bottom': '5px'
                 });
             }
         }

@@ -88,32 +88,33 @@ class HomeController extends Controller
             $total_jadwal = Jadwal::whereRelation('maintenance.mesin','user_id', $user_id)->get();
         }
 
-        $jadwal_chart_rencana = Jadwal::whereYear('tanggal_rencana', now(7)->year)->get()->groupBy(function($val) {
-            return Carbon::parse($val->tanggal_rencana)->month;
-            })->sort()->map(function($item){
-                return $item->count();
-            });
+        $year = now(7)->year;
+        $months = collect(range(1, 12))->mapWithKeys(fn ($month) => [$month => 0]);
 
-        //ddd($jadwal_chart_rencana);
-        $jadwal_chart_realisasi = Jadwal::whereYear('tanggal_realisasi', now(7)->year)->where('status', '=', 4)->get()->groupBy(function($val) {
-                return Carbon::parse($val->tanggal_rencana)->month;
-            })->sort()->map(function($item){
-                return $item->count();
-            });
+        $rencana = Jadwal::whereYear('tanggal_rencana', $year)
+            ->get()
+            ->groupBy(fn($val) => Carbon::parse($val->tanggal_rencana)->month)
+            ->map(fn($item) => $item->count());
 
+        $realisasi = Jadwal::whereYear('tanggal_realisasi', $year)
+            ->where('status', '=', 4)
+            ->get()
+            ->groupBy(fn($val) => Carbon::parse($val->tanggal_realisasi)->month)
+            ->map(fn($item) => $item->count());
 
-        return view('home', ['halaman' => 'Home',
-         'chart_rencana' => $jadwal_chart_rencana,
-         'chart_realisasi' => $jadwal_chart_realisasi,
-         'terlambat' => $terlambat,
-         'hari_ini' => $hari_ini,
-         'seminggu' => $seminggu,
-         'sebulan' => $sebulan,
-         'total_jadwal' => $total_jadwal,
+        $chart_rencana = $months->merge($rencana)->values();
+        $chart_realisasi = $months->merge($realisasi)->values();
+
+        return view('home', [
+            'halaman' => 'Home',
+            'chart_rencana' => $chart_rencana,
+            'chart_realisasi' => $chart_realisasi,
+            'terlambat' => $terlambat,
+            'hari_ini' => $hari_ini,
+            'seminggu' => $seminggu,
+            'sebulan' => $sebulan,
+            'total_jadwal' => $total_jadwal,
         ]);
-
-
-
     }
 
 

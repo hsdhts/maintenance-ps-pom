@@ -138,10 +138,10 @@
             var options = {
                 series: [{
                     name: 'Rencana',
-                    data: [ @for($i = 1; $i <= 12; $i++)@if($chart_rencana->get($i)){{$chart_rencana->get($i)}},@else 0,@endif @endfor ]
+                    data: {!! json_encode($chart_rencana) !!}
                 }, {
                     name: 'Realisasi',
-                    data: [@for($i = 1; $i <= 12; $i++)@if($chart_realisasi->get($i)){{$chart_realisasi->get($i)}},@else 0,@endif @endfor ]
+                    data: {!! json_encode($chart_realisasi) !!}
                 },
 
             ],

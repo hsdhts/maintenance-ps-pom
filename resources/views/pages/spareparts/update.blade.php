@@ -32,8 +32,8 @@
         </div>
 
         <div class="mb-3">
-            <label for="estimasi" class="form-label">Estimasi</label>
-            <input type="date" class="form-control @error('estimasi') is-invalid @enderror" id="estimasi" placeholder="Estimasi" value="{{ old('estimasi', $sparepart->estimasi) }}" name="estimasi">
+            <label for="estimasi" class="form-label">Tanggal Pembelian</label>
+            <input type="date" class="form-control @error('estimasi') is-invalid @enderror" id="estimasi" placeholder="tanngal pem" value="{{ old('estimasi', $sparepart->estimasi) }}" name="estimasi">
             @error('estimasi')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
